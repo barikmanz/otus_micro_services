@@ -24,12 +24,13 @@ spec:
             httpGet:
               port: 8000
               path: /health
-            initialDelaySeconds: 10
-            periodSeconds: 5
-            timeoutSeconds: 1
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
               port: 8000
-              path: /
-            initialDelaySeconds: 10
-            periodSeconds: 5
+              path: /health
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
