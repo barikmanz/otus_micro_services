@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-app-deployment
+  labels:
+    app: micro-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: micro-app
+  template:
+    metadata:
+      labels:
+        app: micro-app
+    spec:
+      containers:
+        - name: micro-app
+          image: barikman/otus_micro_services:otus_docker_homework
+          ports:
+            - name: micro-app
+              containerPort: 8000
+          livenessProbe:
+            httpGet:
+              port: 8000
+              path: /health
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 8000
+              path: /health
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
