@@ -22,7 +22,7 @@ controller:
   service:
     enabled: true
     ports:
-      http: 8081
+      http: 8082
       https: 8443
     targetPorts:
       http: http

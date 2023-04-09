@@ -4,6 +4,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_Docker", "2_Docker", "{C2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtusDockerHomework", "OtusDockerHomework\OtusDockerHomework.csproj", "{2869D2AC-0BE3-41C1-BF0C-55455E06A5DB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7_basic_kubernates", "7_basic_kubernates", "{56757CEB-F48C-4E7A-AD29-0697F35A11E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Api", "UserService.Api\UserService.Api.csproj", "{422BEEEC-E84B-49C1-BE78-3C9A66673BAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Application", "UserService.Application\UserService.Application.csproj", "{5F0E60FB-ADF9-4CD7-A5AF-71AB6974A1D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Domain", "UserService.Domain\UserService.Domain.csproj", "{2D2E449A-B832-42C5-A090-AD2A562AC65E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Infrastructure", "UserService.Infrastructure\UserService.Infrastructure.csproj", "{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -11,10 +21,30 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2869D2AC-0BE3-41C1-BF0C-55455E06A5DB} = {C2BD625B-3F58-4C9B-86C8-D5254B036F43}
+		{422BEEEC-E84B-49C1-BE78-3C9A66673BAF} = {56757CEB-F48C-4E7A-AD29-0697F35A11E5}
+		{5F0E60FB-ADF9-4CD7-A5AF-71AB6974A1D4} = {56757CEB-F48C-4E7A-AD29-0697F35A11E5}
+		{2D2E449A-B832-42C5-A090-AD2A562AC65E} = {56757CEB-F48C-4E7A-AD29-0697F35A11E5}
+		{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5} = {56757CEB-F48C-4E7A-AD29-0697F35A11E5}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2869D2AC-0BE3-41C1-BF0C-55455E06A5DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2869D2AC-0BE3-41C1-BF0C-55455E06A5DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2869D2AC-0BE3-41C1-BF0C-55455E06A5DB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{422BEEEC-E84B-49C1-BE78-3C9A66673BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{422BEEEC-E84B-49C1-BE78-3C9A66673BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{422BEEEC-E84B-49C1-BE78-3C9A66673BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{422BEEEC-E84B-49C1-BE78-3C9A66673BAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F0E60FB-ADF9-4CD7-A5AF-71AB6974A1D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F0E60FB-ADF9-4CD7-A5AF-71AB6974A1D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F0E60FB-ADF9-4CD7-A5AF-71AB6974A1D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F0E60FB-ADF9-4CD7-A5AF-71AB6974A1D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2E449A-B832-42C5-A090-AD2A562AC65E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2E449A-B832-42C5-A090-AD2A562AC65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2E449A-B832-42C5-A090-AD2A562AC65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2E449A-B832-42C5-A090-AD2A562AC65E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
