@@ -1,12 +1,13 @@
 using MediatR;
 
-namespace UserService.Application.Handlers.Commands.UpdateUserCommandHandler;
+namespace UserService.Application.Handlers.Commands.CreateUserCommandHandler;
 
-public class UpdateUserCommand : IRequest<Unit>
+public class CreateUserCommand: IRequest<Guid>
 {
-    public Guid UserId { get; set; }
+    public string UserName { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Email { get; set; }
     public string Phone { get; set; }
+    
 }

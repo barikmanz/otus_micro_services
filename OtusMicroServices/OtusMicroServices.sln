@@ -5,6 +5,22 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtusDockerHomework", "OtusDockerHomework\OtusDockerHomework.csproj", "{2869D2AC-0BE3-41C1-BF0C-55455E06A5DB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7_basic_kubernates", "7_basic_kubernates", "{56757CEB-F48C-4E7A-AD29-0697F35A11E5}"
+	ProjectSection(SolutionItems) = preProject
+		api.Dockerfile = api.Dockerfile
+		.dockerignore = .dockerignore
+		migrations.Dockerfile = migrations.Dockerfile
+		charts\user-service\.helmignore = charts\user-service\.helmignore
+		charts\user-service\Chart.yaml = charts\user-service\Chart.yaml
+		charts\user-service\templates\deployment.yaml = charts\user-service\templates\deployment.yaml
+		charts\user-service\templates\hpa.yaml = charts\user-service\templates\hpa.yaml
+		charts\user-service\templates\ingress.yaml = charts\user-service\templates\ingress.yaml
+		charts\user-service\templates\NOTES.txt = charts\user-service\templates\NOTES.txt
+		charts\user-service\templates\service.yaml = charts\user-service\templates\service.yaml
+		charts\user-service\templates\serviceaccount.yaml = charts\user-service\templates\serviceaccount.yaml
+		charts\user-service\templates\tests\test-connection.yaml = charts\user-service\templates\tests\test-connection.yaml
+		charts\user-service\templates\_helpers.tpl = charts\user-service\templates\_helpers.tpl
+		charts\user-service\values.yaml = charts\user-service\values.yaml
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Api", "UserService.Api\UserService.Api.csproj", "{422BEEEC-E84B-49C1-BE78-3C9A66673BAF}"
 EndProject
