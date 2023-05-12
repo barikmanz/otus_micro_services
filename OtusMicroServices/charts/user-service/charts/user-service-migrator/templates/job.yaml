@@ -1,0 +1,44 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "user-service-migrator.fullname" . }}-{{ .Release.Revision }}
+  labels:
+    {{- include "user-service-migrator.labels" . | nindent 4 }}
+spec:
+  backoffLimit: 1
+  template:
+    metadata:
+      labels:
+        {{- include "user-service-migrator.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+        - name: "{{ template "user-service-migrator.configMapName" . }}-config"
+          configMap:
+            name: {{ template "user-service-migrator.configMapName" . }}
+        - name: "{{ template "user-service-migrator.secretName" . }}-secret"
+          secret:
+            secretName: {{ template  "user-service-api.secretName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - mountPath: /app/appsettings.Production.json
+              name: "{{ template "user-service-migrator.configMapName" . }}-config"
+              subPath: appsettings.secrets.Production.json
+            - mountPath: /app/appsettings.secrets.Production.json
+              name: "{{ template "user-service-migrator.secretName" . }}-secret"
+              subPath: appsettings.secrets.Production.json
+          env:
+          {{ range $k, $v := .Values.global.envValuesFrom }} # dynamic values
+            - name: {{ $k | quote }}
+              valueFrom:
+                fieldRef:
+                  fieldPath: {{ $v | quote }}
+          {{- end }}
+          {{- $env := merge (.Values.env | default dict) (.Values.global.env | default dict) -}}
+          {{ range $k, $v := $env }}
+            - name: {{ $k | quote }}
+              value: {{ $v | quote }}
+          {{- end }}
+      restartPolicy: {{ .Values.job.restartPolicy }}

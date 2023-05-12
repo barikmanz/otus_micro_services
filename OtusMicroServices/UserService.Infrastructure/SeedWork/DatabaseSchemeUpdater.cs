@@ -19,14 +19,14 @@ namespace UserService.Infrastructure.SeedWork
             var pendingMigrations = (await _dbContext.Database.GetPendingMigrationsAsync(cancellationToken)).ToArray();
             if (pendingMigrations.Any())
             {
-                _logger.LogWarning($"Applying migrations for {typeof(TDbContext).Name}...\n" +
-                                   $"Migrations to apply:\n\t{string.Join("\n\t", pendingMigrations)}");
+                _logger.LogWarning("Applying migrations for {Name}...\\n Migrations to apply:\\n\\t{Join}",
+                    typeof(TDbContext).Name, string.Join("\n\t", pendingMigrations));
                 await _dbContext.Database.MigrateAsync(cancellationToken);
-                _logger.LogWarning($"Migrations for {typeof(TDbContext).Name} applied successfully.");
+                _logger.LogWarning("Migrations for {Name} applied successfully", typeof(TDbContext).Name);
                 return;
             }
 
-            _logger.LogWarning($"No migrations to apply for {typeof(TDbContext).Name}.");
+            _logger.LogWarning("No migrations to apply for {Name}", typeof(TDbContext).Name);
         }
 
         public void ApplyMigrations()
@@ -34,14 +34,14 @@ namespace UserService.Infrastructure.SeedWork
             var pendingMigrations = _dbContext.Database.GetPendingMigrations().ToArray();
             if (pendingMigrations.Any())
             {
-                _logger.LogWarning($"Applying migrations for {typeof(TDbContext).Name}...\n" +
-                                   $"Migrations to apply:\n\t{string.Join("\n\t", pendingMigrations)}");
+                _logger.LogWarning("Applying migrations for {Name}...\\n Migrations to apply:\\n\\t{Join}",
+                    typeof(TDbContext).Name, string.Join("\n\t", pendingMigrations));
                 _dbContext.Database.Migrate();
-                _logger.LogWarning($"Migrations for {typeof(TDbContext).Name} applied successfully.");
+                _logger.LogWarning("Migrations for {Name} applied successfully", typeof(TDbContext).Name);
                 return;
             }
 
-            _logger.LogWarning($"No migrations to apply for {typeof(TDbContext).Name}.");
+            _logger.LogWarning("No migrations to apply for {Name}", typeof(TDbContext).Name);
         }
     }
 }

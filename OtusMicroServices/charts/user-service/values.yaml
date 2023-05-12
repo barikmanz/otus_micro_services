@@ -88,3 +88,13 @@ user-service-api:
   tolerations: [ ]
   
   affinity: { }
+
+user-service-migrator:
+  image:
+    repository: barikman/otus_hw_3_userservice_migrator
+    pullPolicy: IfNotPresent
+    tag: "v1"
+
+  job:
+    ## Should the job be rescheduled on the same node if it fails, or just stopped
+    restartPolicy: Never

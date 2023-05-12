@@ -7,18 +7,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7_basic_kubernates", "7_basic_kubernates", "{56757CEB-F48C-4E7A-AD29-0697F35A11E5}"
 	ProjectSection(SolutionItems) = preProject
 		api.Dockerfile = api.Dockerfile
-		.dockerignore = .dockerignore
-		migrations.Dockerfile = migrations.Dockerfile
-		charts\user-service\.helmignore = charts\user-service\.helmignore
-		charts\user-service\Chart.yaml = charts\user-service\Chart.yaml
-		charts\user-service\templates\deployment.yaml = charts\user-service\templates\deployment.yaml
-		charts\user-service\templates\hpa.yaml = charts\user-service\templates\hpa.yaml
-		charts\user-service\templates\ingress.yaml = charts\user-service\templates\ingress.yaml
-		charts\user-service\templates\NOTES.txt = charts\user-service\templates\NOTES.txt
-		charts\user-service\templates\service.yaml = charts\user-service\templates\service.yaml
-		charts\user-service\templates\serviceaccount.yaml = charts\user-service\templates\serviceaccount.yaml
-		charts\user-service\templates\tests\test-connection.yaml = charts\user-service\templates\tests\test-connection.yaml
-		charts\user-service\templates\_helpers.tpl = charts\user-service\templates\_helpers.tpl
 		charts\user-service\values.yaml = charts\user-service\values.yaml
 	EndProjectSection
 EndProject
@@ -29,6 +17,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Domain", "UserService.Domain\UserService.Domain.csproj", "{2D2E449A-B832-42C5-A090-AD2A562AC65E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Infrastructure", "UserService.Infrastructure\UserService.Infrastructure.csproj", "{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Migrator", "UserService.Migrator\UserService.Migrator.csproj", "{735F5ADC-0675-4BF6-96B9-B23C096E6412}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +31,7 @@ Global
 		{5F0E60FB-ADF9-4CD7-A5AF-71AB6974A1D4} = {56757CEB-F48C-4E7A-AD29-0697F35A11E5}
 		{2D2E449A-B832-42C5-A090-AD2A562AC65E} = {56757CEB-F48C-4E7A-AD29-0697F35A11E5}
 		{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5} = {56757CEB-F48C-4E7A-AD29-0697F35A11E5}
+		{735F5ADC-0675-4BF6-96B9-B23C096E6412} = {56757CEB-F48C-4E7A-AD29-0697F35A11E5}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2869D2AC-0BE3-41C1-BF0C-55455E06A5DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -62,5 +53,9 @@ Global
 		{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4AD2BC2-9978-4B3B-A0E7-162414BC18B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{735F5ADC-0675-4BF6-96B9-B23C096E6412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735F5ADC-0675-4BF6-96B9-B23C096E6412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735F5ADC-0675-4BF6-96B9-B23C096E6412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735F5ADC-0675-4BF6-96B9-B23C096E6412}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

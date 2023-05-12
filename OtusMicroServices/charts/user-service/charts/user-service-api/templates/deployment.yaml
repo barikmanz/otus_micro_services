@@ -31,6 +31,13 @@ spec:
         - name: "{{ template "user-service-api.secretName" . }}-secret"
           secret:
             secretName: {{ template  "user-service-api.secretName" . }}
+      initContainers:
+        - name: "{{ .Chart.Name }}-init"
+          image: "groundnuty/k8s-wait-for:v1.7"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - "job"
+            - "{{ .Release.Name }}-user-service-migrator-{{ .Release.Revision}}"
       containers:
         - name: {{ .Chart.Name }}
           securityContext: {{- toYaml .Values.securityContext | nindent 12 }}
