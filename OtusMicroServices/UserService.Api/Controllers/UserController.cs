@@ -29,7 +29,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{userId:guid}")]
-    public Task<Response<Unit>> Update([FromQuery] Guid userId, [FromBody] UpdateUserDto updateUserDto,
+    public Task<Response<Unit>> Update(Guid userId, [FromBody] UpdateUserDto updateUserDto,
         CancellationToken cancellationToken = default)
     {
         var command = new UpdateUserCommand()
@@ -46,7 +46,7 @@ public class UserController : ControllerBase
     }
 
     [HttpDelete("{userId:guid}")]
-    public Task<Response<Unit>> Delete([FromQuery] Guid userId, CancellationToken cancellationToken)
+    public Task<Response<Unit>> Delete(Guid userId, CancellationToken cancellationToken)
     {
         var command = new DeleteUserCommand()
         {
@@ -57,7 +57,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{userId:guid}")]
-    public Task<Response<GetUserByIdResult>> GetById([FromQuery] Guid userId, CancellationToken cancellationToken)
+    public Task<Response<GetUserByIdResult>> GetById(Guid userId, CancellationToken cancellationToken)
     {
         var query = new GetUserByIdQuery()
         {

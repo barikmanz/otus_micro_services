@@ -19,3 +19,4 @@
 4. helm upgrade --install user-service-release . -f values.yaml
 
 Ссылка на Api приложения http://arch.homework:8082/swagger/index.html
+Файл с коллекцией Postman UserService.Api.postman_collection.json

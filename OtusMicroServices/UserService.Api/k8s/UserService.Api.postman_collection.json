@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "95252f5c-e082-4993-ae9c-5b4ccc99183b",
+		"name": "UserService.Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "/User/ping",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/User/ping",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"User",
+								"ping"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/User/ping",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"User",
+										"ping"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"ok\": true,\n  \"errors\": [\n    {\n      \"code\": \"et deserunt\",\n      \"key\": \"sint qui laborum id laboris\",\n      \"message\": \"sit dolor do\"\n    },\n    {\n      \"code\": \"exerc\",\n      \"key\": \"et aute pariatur\",\n      \"message\": \"enim et mollit dolor\"\n    }\n  ],\n  \"data\": \"aliqua incididunt laboris\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"console.info(jsonData)\r",
+									"pm.collectionVariables.set(\"userIdentifier\", jsonData['data']);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userName\": \"ipsum ea et dolor\",\n  \"firstName\": \"sit minim culpa\",\n  \"lastName\": \"in eu culpa ipsum\",\n  \"email\": \"dolor dolore sit\",\n  \"phone\": \"aliqua\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/User",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userName\": \"ipsum ea et dolor\",\n  \"firstName\": \"sit minim culpa\",\n  \"lastName\": \"in eu culpa ipsum\",\n  \"email\": \"dolor dolore sit\",\n  \"phone\": \"aliqua\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/User",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"User"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"ok\": true,\n  \"errors\": [\n    {\n      \"code\": \"officia ex\",\n      \"key\": \"in\",\n      \"message\": \"officia mollit id magna\"\n    },\n    {\n      \"code\": \"dolore sed aliqua exercitation\",\n      \"key\": \"in tempor deserunt\",\n      \"message\": \"ea velit sit\"\n    }\n  ],\n  \"data\": \"urn:uuid:68d319c9-491f-955c-dcc7-56cda8b8f055\"\n}"
+						}
+					]
+				},
+				{
+					"name": "/User/:userId",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"ullamco dolore ut\",\n  \"lastName\": \"non nisi sit veniam\",\n  \"email\": \"ut aute anim qui\",\n  \"phone\": \"quis id aliquip in\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/User/{{userIdentifier}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"User",
+								"{{userIdentifier}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"firstName\": \"ullamco dolore ut\",\n  \"lastName\": \"non nisi sit veniam\",\n  \"email\": \"ut aute anim qui\",\n  \"phone\": \"quis id aliquip in\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/User/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"User",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "urn:uuid:261f26ee-4c14-e575-0577-774cf5332ece",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"ok\": true,\n  \"errors\": [\n    {\n      \"code\": \"proident\",\n      \"key\": \"irure voluptate\",\n      \"message\": \"ea Ut sunt\"\n    },\n    {\n      \"code\": \"mollit ad labo\",\n      \"key\": \"velit voluptate\",\n      \"message\": \"Excepteur\"\n    }\n  ],\n  \"data\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "/User/:userId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/User/{{userIdentifier}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"User",
+								"{{userIdentifier}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/User/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"User",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "urn:uuid:261f26ee-4c14-e575-0577-774cf5332ece",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"ok\": false,\n  \"errors\": [\n    {\n      \"code\": \"anim irure\",\n      \"key\": \"esse\",\n      \"message\": \"non velit do anim\"\n    },\n    {\n      \"code\": \"consectetur qui voluptate\",\n      \"key\": \"enim\",\n      \"message\": \"nostrud qui non\"\n    }\n  ],\n  \"data\": {\n    \"id\": \"urn:uuid:183bc651-d235-49dc-43b6-58cbddab0564\",\n    \"userName\": \"ut adipisicing pariatur fugiat\",\n    \"firstName\": \"aliqua Ut\",\n    \"lastName\": \"quis qui\",\n    \"email\": \"ullamco irure ea pariatur occaecat\",\n    \"phone\": \"officia proident sit velit\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "/User/:userId",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/plain"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/User/{{userIdentifier}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"User",
+								"{{userIdentifier}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/User/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"User",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "urn:uuid:261f26ee-4c14-e575-0577-774cf5332ece",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"ok\": false,\n  \"errors\": [\n    {\n      \"code\": \"ullamco labore\",\n      \"key\": \"a\",\n      \"message\": \"reprehenderit commodo\"\n    },\n    {\n      \"code\": \"esse ipsum eni\",\n      \"key\": \"occaecat exercitation commodo deserunt irure\",\n      \"message\": \"exercitation nulla magna\"\n    }\n  ],\n  \"data\": {}\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://arch.homework:8082",
+			"type": "string"
+		},
+		{
+			"key": "userIdentifier",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
