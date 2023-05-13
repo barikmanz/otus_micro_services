@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "user-service-api.configMapName" . }}
+  labels:
+    app: {{ template  "user-service-api.name" . }}
+    chart: {{ template "user-service-api.chart" . }}
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+data:
+  appsettings.Production.json: |-
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft.AspNetCore": "Warning"
+        }
+      },
+      "Kestrel": {
+        "Endpoints": {
+          "Http": {
+            "Url": "http://[::]:8000"
+          }
+        }
+      }
+    }

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-deployment
+  labels:
+    app: userservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: userservice
+  template:
+    metadata:
+      labels:
+        app: userservice
+    spec:
+      volumes:
+        - name: user-service-configs-volume
+          configMap:
+            name: user-service-configs
+        - name: user-service-secrets
+          secret:
+            secretName: user-service-secrets
+        
+      containers:
+        - name: userservice
+          image: barikman/otus_hw_3_userservice:v1
+          volumeMounts:
+            - name: user-service-configs-volume
+              mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
+            - name: user-service-secrets
+              mountPath: /app/appsettings.secrets.Production.json
+              subPath: appsettings.secrets.Production.json
+          ports:
+            - name: userservice
+              containerPort: 8000
+          env:
+            - name: "ASPNETCORE_ENVIRONMENT"
+              value: "Production"
+          livenessProbe:
+            httpGet:
+              port: 8000
+              path: user/ping
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 8000
+              path: user/ping
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
