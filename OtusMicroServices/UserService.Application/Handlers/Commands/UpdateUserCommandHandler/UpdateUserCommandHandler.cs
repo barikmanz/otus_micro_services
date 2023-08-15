@@ -1,5 +1,6 @@
 using MediatR;
 using UserService.Domain.Users.Repository;
+using UserService.Infrastructure.SeedWork.Exceptions;
 using UserService.Infrastructure.SeedWork.UnitOfWork;
 
 namespace UserService.Application.Handlers.Commands.UpdateUserCommandHandler;
@@ -26,7 +27,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Unit>
 
         if (user == null)
         {
-            throw new KeyNotFoundException($"Пользователь не найден с Id = '{request.UserId}'");
+            throw new NotFoundException($"Пользователь не найден с Id = '{request.UserId}'");
         }
 
         user.SetEmail(request.Email);

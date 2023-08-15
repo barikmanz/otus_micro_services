@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "95252f5c-e082-4993-ae9c-5b4ccc99183b",
-		"name": "UserService.Api",
+		"_postman_id": "41ac97af-bf78-412f-b0b2-ba73654c2986",
+		"name": "UserService.Api Error Actions",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -9,67 +9,13 @@
 			"name": "User",
 			"item": [
 				{
-					"name": "/User/ping",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "text/plain"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/User/ping",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"User",
-								"ping"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Success",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{baseUrl}}/User/ping",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"User",
-										"ping"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n  \"ok\": true,\n  \"errors\": [\n    {\n      \"code\": \"et deserunt\",\n      \"key\": \"sint qui laborum id laboris\",\n      \"message\": \"sit dolor do\"\n    },\n    {\n      \"code\": \"exerc\",\n      \"key\": \"et aute pariatur\",\n      \"message\": \"enim et mollit dolor\"\n    }\n  ],\n  \"data\": \"aliqua incididunt laboris\"\n}"
-						}
-					]
-				},
-				{
 					"name": "/User",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var jsonData = JSON.parse(responseBody);\r",
-									"console.info(jsonData)\r",
-									"pm.collectionVariables.set(\"userIdentifier\", jsonData['data']);"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -89,7 +35,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"userName\": \"ipsum ea et dolor\",\n  \"firstName\": \"sit minim culpa\",\n  \"lastName\": \"in eu culpa ipsum\",\n  \"email\": \"dolor dolore sit\",\n  \"phone\": \"aliqua\"\n}",
+							"raw": "{\n    \"fake\": \"ipsum ea et dolor\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -169,13 +115,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/User/{{userIdentifier}}",
+							"raw": "{{baseUrl}}/User/b4f9e56a-569a-44c7-aa9e-b5e5749e150a",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"User",
-								"{{userIdentifier}}"
+								"b4f9e56a-569a-44c7-aa9e-b5e5749e150a"
 							]
 						}
 					},
@@ -237,13 +183,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/User/{{userIdentifier}}",
+							"raw": "{{baseUrl}}/User/b4f9e56a-569a-44c7-aa9e-b5e5749e150a",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"User",
-								"{{userIdentifier}}"
+								"b4f9e56a-569a-44c7-aa9e-b5e5749e150a"
 							]
 						}
 					},
@@ -296,13 +242,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/User/{{userIdentifier}}",
+							"raw": "{{baseUrl}}/User/b4f9e56a-569a-44c7-aa9e-b5e5749e150a",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"User",
-								"{{userIdentifier}}"
+								"b4f9e56a-569a-44c7-aa9e-b5e5749e150a"
 							]
 						}
 					},

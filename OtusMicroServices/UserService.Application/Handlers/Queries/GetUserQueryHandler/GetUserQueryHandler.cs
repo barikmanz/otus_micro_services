@@ -1,5 +1,6 @@
 using MediatR;
 using UserService.Domain.Users.Repository;
+using UserService.Infrastructure.SeedWork.Exceptions;
 
 namespace UserService.Application.Handlers.Queries.GetUserQueryHandler;
 
@@ -23,7 +24,7 @@ public class GetUserQueryHandler : IRequestHandler<GetUserByIdQuery, GetUserById
 
         if (user == null)
         {
-            throw new KeyNotFoundException($"Пользователем с идентификатором {request.Id} не найден");
+            throw new NotFoundException($"Пользователем с идентификатором {request.Id} не найден");
         }
 
         var result = new GetUserByIdResult

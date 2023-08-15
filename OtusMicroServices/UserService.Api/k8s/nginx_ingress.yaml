@@ -18,8 +18,8 @@ controller:
   service:
     enabled: true
     ports:
-      http: 8082
-      https: 8443
+      http: 80
+      https: 443
     targetPorts:
       http: http
       https: https
