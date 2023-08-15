@@ -1,7 +1,12 @@
 using System.Reflection;
+using Microsoft.AspNetCore.Diagnostics;
+using Prometheus;
 using Serilog;
+using UserService.Api.Middleware;
 using UserService.Infrastructure;
 using UserService.Infrastructure.SeedWork;
+using UserService.Infrastructure.SeedWork.Exceptions.ExceptionDescriptors;
+using UserService.Infrastructure.SeedWork.JsonSerializers;
 using UserService.Infrastructure.SeedWork.Loggers;
 
 namespace UserService.Api;
@@ -45,22 +50,29 @@ public class Startup
             serviceConfiguration.RegisterServicesFromAssemblies(assembliesForScan);
         });
 
+        services.AddJsonSerializer();
         services.AddUserServiceDatabase(configuration);
+        services.AddExceptionDescriptors();
     }
 
-    private static void ConfigureApplication(WebApplication app,IConfiguration configuration)
+    private static void ConfigureApplication(WebApplication app, IConfiguration configuration)
     {
         // if (app.Environment.IsDevelopment())
         //   {
         app.UseSwagger();
         app.UseSwaggerUI();
         //   }
+        app.UseMetricServer();
+        app.UseHttpMetrics();
+        app.UseExceptionMiddleware();
+
 
         app
             .UseRouting()
             .UseAuthorization()
             .UseEndpoints(endpoints => { endpoints.MapControllers(); });
-        
+
+
         app.UseAutoMigrations(configuration);
     }
 

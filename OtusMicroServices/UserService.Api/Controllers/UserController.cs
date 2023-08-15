@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.JavaScript;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using UserService.Api.Extensions;
@@ -10,7 +11,7 @@ using UserService.Application.Handlers.Queries.GetUserQueryHandler;
 namespace UserService.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("User")]
 public class UserController : ControllerBase
 {
     private readonly IMediator _mediator;

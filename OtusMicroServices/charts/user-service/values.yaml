@@ -15,7 +15,7 @@ user-service-api:
     repository: barikman/otus_hw_3_userservice
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "v1"
+    tag: "v3"
 
   imagePullSecrets: [ ]
   nameOverride: ""
@@ -58,12 +58,15 @@ user-service-api:
         paths:
           - path: /
             pathType: Prefix
-    #tls: [ ]
-    #  - secretName: chart-example-tls
-    #    hosts:
-    #      - chart-example.local
-  
-  
+    tls: 
+      - secretName: arch-homework-tls
+        hosts:
+          - arch.homework
+          
+  metrics:
+    serviceMonitor:
+      enabled: true
+    
   resources: { }
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
